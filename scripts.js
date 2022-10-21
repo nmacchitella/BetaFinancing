@@ -8,9 +8,6 @@ tracking['scenarios'][0]['intervals'][0] = {
     'start': 0,
     'end': 0, 
     'commission': 0, 
-    //'int_rev':0,
-    //'int_beta_rev':0,
-    //'int_prod_rev':0,
 }
 
 let range = function(start, stop, step){
@@ -42,16 +39,18 @@ function add_interval(event){
 
     let scenario = $(event.target.parentElement.parentElement).data('scenario-cnt')
     let interval_index = Object.keys( tracking['scenarios'][scenario]['intervals']).length
+
+    console.log(interval_index)
    
+
+    let start = parseInt(tracking['scenarios'][scenario]['intervals'][interval_index -1]['end']) + 1
+    let end = parseInt(tracking['scenarios'][scenario]['intervals'][interval_index - 1]['end']) + 501
+
     tracking['scenarios'][scenario]['intervals'][interval_index] = {
-        'start': 0,
-        'end': 0, 
-        'commission': 0, 
+        'start': start,
+        'end': end, 
+        'commission': 0.1, 
     }
-
-
-    let start = tracking['scenarios'][scenario]['intervals'][interval_index -1]['end'] + 1
-    let end = tracking['scenarios'][scenario]['intervals'][interval_index - 1]['end'] + 501
 
     let to_be_appended = `
             <div class="interval" data-interval-cnt="${interval_index}">
@@ -161,6 +160,8 @@ function add_scenario(event){
 
 function update_scenario_intervals_dic(scenario_index){
 
+    console.log('update_scenario_intervals_dic')
+
     let scenario = $(`.scenario[data-scenario-cnt="${scenario_index}"]`)
     let intervals = $(scenario).find('.interval')
 
@@ -175,6 +176,8 @@ function update_scenario_intervals_dic(scenario_index){
 
     })
     tracking['sales'] = range(0,generate_sales_index(),1)
+
+    console.log('end update_scenario_intervals_dic')
 
 }
 
@@ -206,6 +209,8 @@ function delete_interval(event){
 
 function update_scenarios_dic(){
 
+    console.log('update_scenarios_dic')
+
     let scenarios = $('.scenario')
 
     tracking['scenarios'] = {}
@@ -230,6 +235,7 @@ function update_scenarios_dic(){
 
     tracking['sales'] = range(0,generate_sales_index(),1)
     
+    console.log('end update_scenarios_dic')
 
 }
 
