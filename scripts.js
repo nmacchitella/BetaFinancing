@@ -282,6 +282,7 @@ $( document ).ready(function() {
 
         $(event.target).closest('.scenario').find(".mg-bh").val(mg_bh.toFixed(2))
         $(event.target).closest('.scenario').find(".interval[data-interval-cnt='0'] .inputs .input.start").val(Math.floor(mg_bh)+1)
+        $(event.target).closest('.scenario').find(".interval[data-interval-cnt='0'] .inputs .input.end").val(Math.floor(mg_bh)+501)
 
         tracking['scenarios'][scenario]['mg'] = mg
         tracking['scenarios'][scenario]['mg_commission'] = mg_commission
