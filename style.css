@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+/* ===== NAVIGATION ===== */
+/* ===== TYPOGRAPHY ===== */
+h1,h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+header .title{
+
+}
+header .subtitle{
+    margin: 0;
+}
+
+.input {
+    max-width: 60px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+/* ===== LAYOUT ===== */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    padding:50px
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+section {
+    width: 65%;
+}
+
+aside {
+    width: 25%;
+}
+
+
+.d-none {
+    display: none;
+}
+
+.scenarios {
+    border-top: 1px solid black;
+    padding: 5px 0;
+    margin: 20px 0;
+
+}
+
+.scenario {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.scenario-intervals {
+    margin-top: 10px;
+    border-top: 1px solid black;
+}
+
+.scenario-body {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.scenario-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.scenario-collapsible-btn {
+    width: 65%;
+    text-align: left;
+
+}
+.scenario-delete-btn{
+    width: 25%;
+    text-align: right;
+}
+
+.interval{
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(241, 158, 158,0.5);
+
+}
+.interval-header{
+    display:flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.inputs{
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 10px;
+}
+
+.add-interval-btn{
+    margin-top: 30px;
+}
+
+
+.scenario-collapsible-btn::after {
+    content: '\02795';
+    float: right;
+    margin-left: 5px;
+}
