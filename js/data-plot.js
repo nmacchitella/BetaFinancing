@@ -102,7 +102,7 @@
     }
 
     let dataSet = []
-    let columns = []
+    let columns = [{ title : `Sales`}]
 
     Object.keys(tracking['scenarios']).forEach(key => {
       columns.push({ title : `Scenario - ${key}`})
