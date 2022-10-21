@@ -1,4 +1,4 @@
-  const colors = ['blue', 'red', 'yellow', 'green']
+  const colors = ['blue', 'red', 'green', 'yellow', 'black', ]
  
   function FormatValue(value){
     if(parseFloat(Math.abs(value))>999){
@@ -200,7 +200,7 @@
                         },
                         subtitle: {
                           display: true,
-                          text: 'Compare profits for different financing structures and sales levels'
+                          text: 'Compare profits for different financing structures and sales levels.'
                         },
                         zoom: {
                           zoom: {
