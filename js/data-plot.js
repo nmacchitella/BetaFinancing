@@ -104,7 +104,6 @@
     let dataSet = []
     let columns = []
 
-    columns.push({ title : "Sales"})
     Object.keys(tracking['scenarios']).forEach(key => {
       columns.push({ title : `Scenario - ${key}`})
     })
@@ -162,6 +161,24 @@
                           display: true,
                           text: 'Beta Revenue'
                         },
+                        zoom: {
+                          zoom: {
+                            wheel: {
+                              enabled: true,
+                              speed: 0.0005
+                            },
+                            pinch: {
+                              enabled: true
+                            },
+                            drag: {
+                              enabled: true
+                            },
+                            pan: {
+                              enabled: true
+                            },
+                            mode: 'xy',
+                          }
+                        }
                       }
                     },
                   };
@@ -172,6 +189,7 @@
       $('.refresh').click(function(){
         update_chart(chart)
         created_datatable()
+        chart.resetZoom()
       })
 
 
