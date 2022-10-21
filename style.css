@@ -4,7 +4,7 @@ body {
 }
 /* ===== NAVIGATION ===== */
 /* ===== TYPOGRAPHY ===== */
-h1,h2 {
+h1,h2,h4 {
     margin: 0;
 }
 
@@ -43,7 +43,7 @@ img {
 }
 
 .container {
-    padding:50px
+    padding:25px
 }
 
 main {
@@ -130,4 +130,8 @@ aside {
     content: '\02795';
     float: right;
     margin-left: 5px;
+}
+
+.bottom-wrapper {
+    margin-top: 50px;
 }

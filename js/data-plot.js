@@ -1,16 +1,25 @@
   const colors = ['blue', 'red', 'yellow', 'green']
  
-
+  function FormatValue(value){
+    if(parseFloat(Math.abs(value))>999){
+      let val = Math.round(parseFloat(value)/1000 *100)/100
+      return val.toString() + 'M'
+    }
+    else{
+      let val = Math.round(parseFloat(value) *100)/100
+      return val.toString() + 'K'
+    }
+  }
 
 
   function compute_sale_rev(sale, scenario) {
 
       let revenue = 0
-      let beta_rev =  - scenario['mg_bh']
+      let beta_rev =  - scenario['mg']
       let producer_rev = 0
   
       if(sale <= scenario['mg_bh']){
-          return {'revenue': sale,'beta_rev': beta_rev + sale,'producer_rev': 0}
+          return {'revenue': sale,'beta_rev': beta_rev + sale*(1-scenario['mg_commission']),'producer_rev': 0}
         } else {
           revenue = scenario['mg_bh']
           beta_rev = 0
@@ -96,9 +105,9 @@
 
   function created_datatable(){
 
-    if ( $.fn.DataTable.isDataTable( '#example' ) ) {
-      $('#example').DataTable().destroy()
-      $('#example').empty()
+    if ( $.fn.DataTable.isDataTable( '#DataTable-Margins' ) ) {
+      $('#DataTable-Margins').DataTable().destroy()
+      $('#DataTable-Margins').empty()
     }
 
     let dataSet = []
@@ -112,9 +121,9 @@
     $(tracking['sales']).each(function(index, value) {
 
       if(index % 10 == 0){
-        let tmp = [ tracking['sales'][index] ]
+        let tmp = [ FormatValue(tracking['sales'][index]) ]
         Object.keys(tracking['scenarios']).forEach(key => {
-          tmp.push(tracking['scenarios'][key]['revenue']['beta_rev'][index])
+          tmp.push(FormatValue(tracking['scenarios'][key]['revenue']['beta_rev'][index]))
         })
         dataSet.push(tmp)
        }      
@@ -122,10 +131,10 @@
     
    
 
-    $('#example').DataTable({
+    $('#DataTable-Margins').DataTable({
       data: dataSet,
       columns: columns,
-      dom: 'frtipB',
+      dom: 'frtip<"bottom-wrapper"B>',
       buttons: [
            'excel', 'pdf', //'print', 'csv', 'copy',
       ],
@@ -140,6 +149,8 @@
   }
 
 
+
+
   //config
   const config = {
                     type: 'line',
@@ -148,6 +159,32 @@
                             datasets: []
                           },
                     options: {
+                      scales: {
+                          y: {
+                              title:{
+                                display: true,
+                                text: 'Profit'
+                              },
+                              ticks: {
+                                  // Include a dollar sign in the ticks
+                                  callback: function(value, index, ticks) {
+                                      return '$' + value + 'K';
+                                  }
+                              }
+                          },
+                          x: {
+                              title:{
+                                display: true,
+                                text: 'Sales'
+                              },
+                              ticks: {
+                                // Include a dollar sign in the ticks
+                                callback: function(value, index, ticks) {
+                                    return '$' + FormatValue(value);
+                                }
+                              }
+                          }
+                      },
                       responsive: true,
                       plugins: {
                         autocolors: false,
@@ -159,7 +196,11 @@
                         },
                         title: {
                           display: true,
-                          text: 'Beta Revenue'
+                          text: 'Financing Scenarios'
+                        },
+                        subtitle: {
+                          display: true,
+                          text: 'Compare profits for different financing structures and sales levels'
                         },
                         zoom: {
                           zoom: {
