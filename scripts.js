@@ -279,7 +279,6 @@ $( document ).ready(function() {
         let mg_commission = $(event.target).closest('.scenario').find('.scenario-body>.inputs label select').val()
         let mg_bh = mg/(1-mg_commission)
 
-
         $(event.target).closest('.scenario').find(".mg-bh").val(mg_bh.toFixed(2))
         $(event.target).closest('.scenario').find(".interval[data-interval-cnt='0'] .inputs .input.start").val(Math.floor(mg_bh)+1)
         $(event.target).closest('.scenario').find(".interval[data-interval-cnt='0'] .inputs .input.end").val(Math.floor(mg_bh)+501)
@@ -295,8 +294,23 @@ $( document ).ready(function() {
         update_scenario_intervals_dic($(event.target).closest('.scenario').data('scenario-cnt'))
     })
 
-    $('.scenarios').on('change','.scenario input', function(event){
-        
+    $('.scenarios').on('change','.scenario input.start', function(event){
+        let IntervalIndex = $(event.target).closest('.interval').data('interval-cnt')
+        if(IntervalIndex>0){
+            let IntervalIndexUpdating = IntervalIndex - 1
+            $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.end`).val(Math.floor($(event.target).val())-1)
+        }        
+    })
+
+    $('.scenarios').on('change','.scenario input.end', function(event){
+        let IntervalIndex = $(event.target).closest('.interval').data('interval-cnt')
+        let ScenarioIndex = $(event.target).closest('.scenario').data('scenario-cnt');
+        let NumberIntervals = Object.keys(tracking['scenarios'][ScenarioIndex]['intervals']).length
+       
+        if(IntervalIndex<NumberIntervals-1){
+            let IntervalIndexUpdating = IntervalIndex + 1
+            $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.start`).val(Math.floor($(event.target).val())+1)
+        }        
     })
    
 
