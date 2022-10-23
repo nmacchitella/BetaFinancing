@@ -298,9 +298,8 @@ $( document ).ready(function() {
         let IntervalIndex = $(event.target).closest('.interval').data('interval-cnt')
         if(IntervalIndex>0){
             let IntervalIndexUpdating = IntervalIndex - 1
-            $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.end`).val(Math.floor($(event.target).val())-1)
+            $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.end`).val(Math.floor($(event.target).val())-1) 
         }        
-    })
 
     $('.scenarios').on('change','.scenario input.end', function(event){
         let IntervalIndex = $(event.target).closest('.interval').data('interval-cnt')
