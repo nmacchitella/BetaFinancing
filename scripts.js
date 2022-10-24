@@ -23,9 +23,6 @@ let range = function(start, stop, step){
 function generate_sales_index(){
     let max = 100
     Object.keys(tracking['scenarios']).forEach(key => {
-
-
-
         Object.keys(tracking['scenarios'][key]['intervals']).forEach(key2 => {
             if(parseFloat(tracking['scenarios'][key]['intervals'][key2]['end'])>max){
                 max = tracking['scenarios'][key]['intervals'][key2]['end']
