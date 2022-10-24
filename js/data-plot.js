@@ -121,8 +121,6 @@
     $(tracking['sales']).each(function(index, value) {
 
       if(index % 10 == 0){
-        console.log(index)
-        console.log(FormatValue(tracking['sales'][index]))
         let tmp = [ FormatValue(tracking['sales'][index]) ]
         Object.keys(tracking['scenarios']).forEach(key => {
           tmp.push(FormatValue(tracking['scenarios'][key]['revenue']['beta_rev'][index]))

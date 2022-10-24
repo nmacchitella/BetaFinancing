@@ -22,7 +22,6 @@ let range = function(start, stop, step){
 
 function generate_sales_index(){
     let max = 100
-    console.log(Object.keys(tracking['scenarios']))
     Object.keys(tracking['scenarios']).forEach(key => {
 
 
