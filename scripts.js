@@ -22,13 +22,17 @@ let range = function(start, stop, step){
 
 function generate_sales_index(){
     let max = 100
+    console.log(Object.keys(tracking['scenarios']))
     Object.keys(tracking['scenarios']).forEach(key => {
-      Object.keys(tracking['scenarios'][key]['intervals']).forEach(key2 => {
-        if(tracking['scenarios'][key]['intervals'][key2]['end']>max){
-          max = tracking['scenarios'][key]['intervals'][key2]['end']
-        }
-      })
-    })
+
+
+
+        Object.keys(tracking['scenarios'][key]['intervals']).forEach(key2 => {
+            if(parseFloat(tracking['scenarios'][key]['intervals'][key2]['end'])>max){
+                max = tracking['scenarios'][key]['intervals'][key2]['end']
+                }
+            })
+        })
     return max
   }
 
@@ -78,6 +82,7 @@ function add_interval(event){
     `
 
     $(event.target).siblings('.scenario-intervals').append(to_be_appended)
+    update_scenarios_dic()
 
 
 }
@@ -300,6 +305,7 @@ $( document ).ready(function() {
             let IntervalIndexUpdating = IntervalIndex - 1
             $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.end`).val(Math.floor($(event.target).val())-1) 
         }
+        update_scenarios_dic()
     })       
 
     $('.scenarios').on('change','.scenario input.end', function(event){
@@ -310,8 +316,10 @@ $( document ).ready(function() {
         if(IntervalIndex<NumberIntervals-1){
             let IntervalIndexUpdating = IntervalIndex + 1
             $(event.target).closest('.scenario').find(`.interval[data-interval-cnt='${IntervalIndexUpdating}'] .inputs .input.start`).val(Math.floor($(event.target).val())+1)
-        }        
+        }
+        update_scenarios_dic()        
     })
+    
 })
 
     
