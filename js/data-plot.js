@@ -64,7 +64,7 @@
 
 
     return {
-              label: `Profit S-${index}`,
+              label: `Scenario - ${index}`,
               data: tracking['sales'].map(element => Math.round(compute_sale_rev(element, scenario)['beta_rev'])) ,
               borderColor: colors[index] ,
               //backgroundColor: colors[index],
@@ -114,7 +114,7 @@
     let columns = [{ title : `Sales`}]
 
     Object.keys(tracking['scenarios']).forEach(key => {
-      columns.push({ title : `Scenario - ${key}`})
+      columns.push({ title : `Profit S:${key}`})
     })
 
 

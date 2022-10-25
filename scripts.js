@@ -158,7 +158,6 @@ function add_scenario(event){
                             <label>Commission
                                 <select class='commission' style="margin-left: 5px;">
                                     <option value="0.1">10%</option>
-                                    <option value="0.1">10%</option>
                                     <option value="0.15">15%</option>
                                     <option value="0.2">20%</option>
                                     <option value="0.25">25%</option>
