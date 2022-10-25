@@ -76,6 +76,16 @@ function add_interval(event){
                         <option value="0.4">40%</option>
                         <option value="0.45">45%</option>
                         <option value="0.5">50%</option>
+                        <option value="0.55">55%</option>
+                        <option value="0.6">60%</option>
+                        <option value="0.65">65%</option>
+                        <option value="0.7">70%</option>
+                        <option value="0.75">75%</option>
+                        <option value="0.8">80%</option>
+                        <option value="0.85">85%</option>
+                        <option value="0.9">90%</option>
+                        <option value="0.95">95%</option>
+                        <option value="1">100%</option>
                     </select>
                 </label>
             </div>
@@ -112,6 +122,16 @@ function add_scenario(event){
                                 <option value="0.4">40%</option>
                                 <option value="0.45">45%</option>
                                 <option value="0.5">50%</option>
+                                <option value="0.55">55%</option>
+                                <option value="0.6">60%</option>
+                                <option value="0.65">65%</option>
+                                <option value="0.7">70%</option>
+                                <option value="0.75">75%</option>
+                                <option value="0.8">80%</option>
+                                <option value="0.85">85%</option>
+                                <option value="0.9">90%</option>
+                                <option value="0.95">95%</option>
+                                <option value="0">100%</option> <!--if thee mg commission is 100% it means we actually bought the rights and it will all go to us-->
                             </select>
                         </label>
                     </div>
@@ -138,6 +158,7 @@ function add_scenario(event){
                             <label>Commission
                                 <select class='commission' style="margin-left: 5px;">
                                     <option value="0.1">10%</option>
+                                    <option value="0.1">10%</option>
                                     <option value="0.15">15%</option>
                                     <option value="0.2">20%</option>
                                     <option value="0.25">25%</option>
@@ -146,6 +167,16 @@ function add_scenario(event){
                                     <option value="0.4">40%</option>
                                     <option value="0.45">45%</option>
                                     <option value="0.5">50%</option>
+                                    <option value="0.55">55%</option>
+                                    <option value="0.6">60%</option>
+                                    <option value="0.65">65%</option>
+                                    <option value="0.7">70%</option>
+                                    <option value="0.75">75%</option>
+                                    <option value="0.8">80%</option>
+                                    <option value="0.85">85%</option>
+                                    <option value="0.9">90%</option>
+                                    <option value="0.95">95%</option>
+                                    <option value="1">100%</option>
                                 </select>
                             </label>
                         </div>

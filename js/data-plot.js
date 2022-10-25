@@ -64,7 +64,7 @@
 
 
     return {
-              label: `Scenario - ${index}`,
+              label: `Profit S-${index}`,
               data: tracking['sales'].map(element => Math.round(compute_sale_rev(element, scenario)['beta_rev'])) ,
               borderColor: colors[index] ,
               //backgroundColor: colors[index],
